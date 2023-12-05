@@ -1,10 +1,11 @@
 from setuptools import setup, find_packages
+from json_relational import __version__
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(name="json_relational",
-      version="0.0.1",
+      version=__version__,
       author="gr0vity",
       description="convert nested json to flat objects and their mapping",
       long_description=long_description,

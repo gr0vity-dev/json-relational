@@ -1,5 +1,5 @@
 import pytest
-from json_relational.main import JsonRelational
+from json_relational.src.main import JsonRelational
 import json
 
 

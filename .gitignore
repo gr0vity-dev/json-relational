@@ -1,4 +1,5 @@
 debug.py
+_manage/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -14,7 +14,7 @@
 To install `json_relational`, clone the repository from GitHub and install it using pip:
 
 ```bash
-git clone https://github.com/your-username/json_relational.git
+git clone https://github.com/gr0vity-dev/json-relational.git
 cd json_relational
 pip install .
 ```
@@ -80,7 +80,7 @@ The output will be a dictionary containing flattened data, along with mappings a
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/your-username/json_relational/issues).
+Contributions, issues, and feature requests are welcome! Feel free to check [issues page](https://github.com/gr0vity-dev/json-relational/issues).
 
 ## License
 

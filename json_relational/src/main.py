@@ -1,4 +1,3 @@
-from typing import Protocol, Dict, Any
 from json_relational.src.models import SQLIDManager, ChildAccumulator, KeyMapper
 from json_relational.src.flatten_strategies import DictFlattener, ListFlattener
 import json
@@ -60,36 +59,3 @@ class JsonRelational:
 
     def add_key_mappings(self, mappings):
         self.key_mapper.add_key_mappings(mappings)
-
-    def _flatten_dict(self, d, depth, parent_info):
-        parent_info = parent_info or (
-            self.root_name, self.sql_id_manager.increment_sql_id(self.root_name))
-        flat_object = {"sql_id": parent_info[1]}
-
-        for child_key, value in d.items():
-            mapped_key = self.key_mapper.get_mapped_key(child_key)
-            if isinstance(value, (dict, list)):
-                flattened = self.flatten(
-                    value, depth + 1, self.sql_id_manager.get_sql_info(mapped_key))
-                self.child_accumulator.process_children(
-                    mapped_key, flattened, parent_info, self.sql_id_manager)
-            else:
-                flat_object[mapped_key] = value
-
-        return flat_object
-
-    def _flatten_list(self, lst, depth, parent_info):
-        parent_info = parent_info or (
-            self.root_name, self.sql_id_manager.increment_sql_id(self.root_name))
-
-        items = []
-        for item in lst:
-            if not isinstance(item, (dict, list)):
-                wrapped_item = {parent_info[0]: item}
-            else:
-                wrapped_item = item
-
-            flattened = self.flatten(wrapped_item, depth + 1, parent_info)
-            items.append(flattened)
-
-        return items
