@@ -1,0 +1,2 @@
+{"type": "employee", "id": 1, "entries": [{"hash": "X"},{"hash": "Y"},{"hash": "Z"} ]}
+{"type": "else", "entries": [{"hash": "X"},{"hash": "A"}]}

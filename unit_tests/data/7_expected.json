@@ -1,0 +1,90 @@
+{
+    "header": [
+        {
+            "sql_id": 1,
+            "type": "confirm_req",
+            "network": "test",
+            "network_int": 21080,
+            "version": 19,
+            "version_min": 18,
+            "version_max": 19,
+            "extensions": 4352
+        }
+    ],
+    "roots": [
+        {
+            "sql_id": 1,
+            "root": "E6A7947AC0D9B00684E381075FE0D9A530F9C7225488852B01568053B688A112",
+            "hash": "772EB9659810D0ACBF517D71513E4895340D728DD8A6E775B835F026388BEC72"
+        }
+    ],
+    "message": [
+        {
+            "sql_id": 1,
+            "block": null
+        }
+    ],
+    "socket": [
+        {
+            "sql_id": 1,
+            "remote_endpoint": "[::ffff:192.168.0.2]:17075",
+            "local_endpoint": "[::ffff:192.168.0.4]:38538"
+        }
+    ],
+    "channel": [
+        {
+            "sql_id": 1,
+            "endpoint": "[::ffff:192.168.0.2]:17075",
+            "peering_endpoint": "[::ffff:192.168.0.2]:17075",
+            "node_id": "72C593C4A9FC685F38F32498DC70F11A56339108C5A07A16ECE2C80A33989370"
+        }
+    ],
+    "log": [
+        {
+            "sql_id": 1,
+            "log_timestamp": "2023-09-21 20:55:06.998",
+            "log_process": "channel_send",
+            "log_level": "trace",
+            "log_file": "pr1",
+            "log_event": "confirm_req",
+            "dropped": false,
+            "traffic_type": "generic",
+            "drop_policy": "limiter",
+            "size": 72,
+            "should_pass": true,
+            "id": "0x373f07335df110d4"
+        }
+    ],
+    "mappings": [
+        {
+            "main_type": "message",
+            "main_sql_id": 1,
+            "link_type": "header",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "message",
+            "main_sql_id": 1,
+            "link_type": "roots",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 1,
+            "link_type": "message",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "channel",
+            "main_sql_id": 1,
+            "link_type": "socket",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 1,
+            "link_type": "channel",
+            "link_sql_id": 1
+        }
+    ]
+}

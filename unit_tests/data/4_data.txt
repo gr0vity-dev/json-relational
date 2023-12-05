@@ -1,0 +1,4 @@
+{"type": "employee", "id": 1, "data": {"department": "sales", "manager": "Kim"}}
+{"type": "employee", "id": 3, "data": {"department": "sales", "manager": "Bob"}}
+{"type": "employee", "id": 2, "data": {"department": "sales", "manager": "Kim"}}
+{"type": "employee", "id": 7, "data": {"department": "sales", "manager": "Jane"}}

@@ -1,0 +1,29 @@
+{
+    "log": [
+        {
+            "sql_id": 1,
+            "name": "Alice",
+            "age": 30
+        },
+        {
+            "sql_id": 2,
+            "type": "employee",
+            "id": 123
+        }
+    ],
+    "data": [
+        {
+            "sql_id": 1,
+            "department": "sales",
+            "manager": "Bob"
+        }
+    ],
+    "mappings": [
+        {
+            "main_type": "log",
+            "main_sql_id": 2,
+            "link_type": "data",
+            "link_sql_id": 1
+        }
+    ]
+}
