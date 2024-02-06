@@ -1,0 +1,87 @@
+{
+  "ok": [
+    {
+      "sql_id": 1
+    },
+    {
+      "sql_id": 2
+    },
+    {
+      "sql_id": 3
+    }
+  ],
+  "ca": [
+    {
+      "sql_id": 1,
+      "k21": "v21_1"
+    }
+  ],
+  "confirm_ack": [
+    {
+      "sql_id": 1,
+      "k12": "v12_1"
+    }
+  ],
+  "qr": [
+    {
+      "sql_id": 1,
+      "k21": "v21_2"
+    }
+  ],
+  "confirm_req": [
+    {
+      "sql_id": 1,
+      "k12": "v12_2"
+    }
+  ],
+  "ap": [
+    {
+      "sql_id": 1,
+      "k21": "v21_2"
+    }
+  ],
+  "as_pull": [
+    {
+      "sql_id": 1,
+      "k12": "v12_2"
+    }
+  ],
+  "mappings": [
+    {
+      "main_type": "ok",
+      "main_sql_id": 1,
+      "link_type": "ca",
+      "link_sql_id": 1
+    },
+    {
+      "main_type": "ok",
+      "main_sql_id": 1,
+      "link_type": "confirm_ack",
+      "link_sql_id": 1
+    },
+    {
+      "main_type": "ok",
+      "main_sql_id": 2,
+      "link_type": "qr",
+      "link_sql_id": 1
+    },
+    {
+      "main_type": "ok",
+      "main_sql_id": 2,
+      "link_type": "confirm_req",
+      "link_sql_id": 1
+    },
+    {
+      "main_type": "ok",
+      "main_sql_id": 3,
+      "link_type": "ap",
+      "link_sql_id": 1
+    },
+    {
+      "main_type": "ok",
+      "main_sql_id": 3,
+      "link_type": "as_pull",
+      "link_sql_id": 1
+    }
+  ]
+}

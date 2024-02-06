@@ -15,16 +15,19 @@ class SQLIDManager:
 
 
 class ChildAccumulator:
-    def __init__(self):
+    def __init__(self, pinned_root=None):
         self.accumulated_children = {}
         self.mappings = []
         self.child_hash_to_sql_id = {}
+        self.pinned_root = pinned_root
 
     def add_new_child(self, key, child, child_hash, parent, sql_id_manager):
         sql_id = sql_id_manager.increment_sql_id(key)
         self.child_hash_to_sql_id[child_hash] = sql_id
         child["sql_id"] = sql_id
         self.accumulated_children.setdefault(key, []).append(child)
+        if self.pinned_root:
+            parent = sql_id_manager.get_sql_info(self.pinned_root)
         self.add_mapping(parent, key, sql_id)
 
     def add_mapping(self, parent, key, link_sql_id):

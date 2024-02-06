@@ -4,11 +4,12 @@ import json
 
 
 class JsonRelational:
-    def __init__(self, root_name='log', max_depth=10):
+    def __init__(self, root_name='log', max_depth=10, pin_root=False):
         self.root_name = root_name
         self.max_depth = max_depth
         self.sql_id_manager = SQLIDManager()
-        self.child_accumulator = ChildAccumulator()
+        self.child_accumulator = ChildAccumulator(
+            pinned_root=root_name) if pin_root else ChildAccumulator()
         self.key_mapper = KeyMapper()
         self.strategies = {
             dict: DictFlattener(),

@@ -56,7 +56,7 @@ def test_flatten_lines_8():
     assert actual_result == expected_result
 
 
-def test_flatten_lines_9():
+def test_flatten_lines_8_2():
     # use actual json without reading
     jr = JsonRelational()
 
@@ -70,4 +70,27 @@ def test_flatten_lines_9():
 
     jr.add_key_mappings({"entry": "entries"})
     actual_result = jr.flatten_lines(sample_json_lines, is_json=True)
+    assert actual_result == expected_result
+
+
+def test_flatten_lines_8_3():
+    # use actual json without reading
+    jr = JsonRelational()
+
+    sample_json_lines = jr.read_json('unit_tests/data/8_data_json_array.json')
+    expected_result = jr.read_json('unit_tests/data/8_expected.json')
+
+    jr.add_key_mappings({"entry": "entries"})
+    actual_result = jr.flatten_json(sample_json_lines)
+    assert actual_result == expected_result
+
+
+def test_flatten_lines_9_2():
+    # use actual json without reading
+    jr = JsonRelational(root_name="ok", pin_root=True)
+
+    sample_json_lines = jr.read_json('unit_tests/data/9_data_pinned_root.json')
+    expected_result = jr.read_json('unit_tests/data/9_expected.json')
+
+    actual_result = jr.flatten_json(sample_json_lines)
     assert actual_result == expected_result
