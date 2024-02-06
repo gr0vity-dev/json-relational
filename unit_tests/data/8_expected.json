@@ -1,0 +1,67 @@
+{
+    "log": [
+        {
+            "sql_id": 1,
+            "type": "employee",
+            "id": 1
+        },
+        {
+            "sql_id": 2,
+            "type": "else"
+        },
+        {
+            "sql_id": 3,
+            "type": "else"
+        }
+    ],
+    "entries": [
+        {
+            "sql_id": 1,
+            "hash": "X"
+        },
+        {
+            "sql_id": 2,
+            "hash": "Y"
+        },
+        {
+            "sql_id": 3,
+            "hash": "Z"
+        },
+        {
+            "sql_id": 4,
+            "hash": "A"
+        }
+    ],
+    "mappings": [
+        {
+            "main_type": "log",
+            "main_sql_id": 1,
+            "link_type": "entries",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 1,
+            "link_type": "entries",
+            "link_sql_id": 2
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 1,
+            "link_type": "entries",
+            "link_sql_id": 3
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 2,
+            "link_type": "entries",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 3,
+            "link_type": "entries",
+            "link_sql_id": 4
+        }
+    ]
+}

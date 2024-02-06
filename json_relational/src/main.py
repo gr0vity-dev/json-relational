@@ -15,6 +15,16 @@ class JsonRelational:
             list: ListFlattener()
         }
 
+    @staticmethod
+    def read_text(file_path, encoding='utf-8'):
+        with open(file_path, 'r', encoding=encoding) as file:
+            return file.read()
+
+    @staticmethod
+    def read_json(file_path, encoding='utf-8'):
+        with open(file_path, 'r', encoding=encoding) as file:
+            return json.load(file)
+
     def flatten(self, json_data, depth=0, parent_info=None):
         if depth > self.max_depth:
             return json_data
