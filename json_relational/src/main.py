@@ -40,10 +40,10 @@ class JsonRelational:
             return json_data
 
     def flatten_json(self, json_data):
-        results = []
-        result = self.flatten(json_data)
-        results.append(result)
+        if isinstance(json_data, list):
+            return self.flatten_lines(json_data, is_json=True)
 
+        results = [self.flatten(json_data)]
         self.child_accumulator.accumulated_children[self.root_name] = results
         return {
             self.root_name: results,
