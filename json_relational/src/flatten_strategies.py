@@ -17,12 +17,12 @@ class DictFlattener(FlatteningStrategy):
                 flattened = [context.flatten(
                     value, depth + 1, context.sql_id_manager.get_sql_info(mapped_key))]
                 context.child_accumulator.process_children(
-                    mapped_key, flattened, parent_info, context.sql_id_manager)
+                    mapped_key, flattened, parent_info)
             elif isinstance(value, list):
                 flattened = context.flatten(
                     value, depth + 1, context.sql_id_manager.get_sql_info(mapped_key))
                 context.child_accumulator.process_children(
-                    mapped_key, flattened, parent_info, context.sql_id_manager)
+                    mapped_key, flattened, parent_info)
             else:
                 flat_object[mapped_key] = value
 

@@ -15,22 +15,26 @@ class SQLIDManager:
 
 
 class ChildAccumulator:
-    def __init__(self, pinned_root=None):
+    def __init__(self, sql_id_manager):
+        self.sql_id_manager = sql_id_manager
         self.accumulated_children = {}
         self.mappings = []
         self.child_hash_to_sql_id = {}
+        self.pinned_root = None
+
+    def set_pinned_root(self, pinned_root):
         self.pinned_root = pinned_root
 
-    def add_new_child(self, key, child, child_hash, parent, sql_id_manager):
-        sql_id = sql_id_manager.increment_sql_id(key)
+    def add_new_child(self, key, child, child_hash, parent):
+        sql_id = self.sql_id_manager.increment_sql_id(key)
         self.child_hash_to_sql_id[child_hash] = sql_id
         child["sql_id"] = sql_id
         self.accumulated_children.setdefault(key, []).append(child)
-        if self.pinned_root:
-            parent = sql_id_manager.get_sql_info(self.pinned_root)
         self.add_mapping(parent, key, sql_id)
 
     def add_mapping(self, parent, key, link_sql_id):
+        if self.pinned_root:
+            parent = self.sql_id_manager.get_sql_info(self.pinned_root)
         self.mappings.append({
             "main_type": parent[0],
             "main_sql_id": parent[1],
@@ -38,15 +42,15 @@ class ChildAccumulator:
             "link_sql_id": link_sql_id
         })
 
-    def process_children(self, key, child_items, parent, sql_id_manager):
+    def process_children(self, key, child_items, parent):
 
         for child in child_items:
-            self._process_child(key, child, parent, sql_id_manager)
+            self._process_child(key, child, parent)
 
-    def _process_child(self, key, child, parent, sql_id_manager):
+    def _process_child(self, key, child, parent):
         child_hash = self.hash_dict(key, child)
         if child_hash not in self.child_hash_to_sql_id:
-            self.add_new_child(key, child, child_hash, parent, sql_id_manager)
+            self.add_new_child(key, child, child_hash, parent)
         else:
             self.add_mapping(
                 parent, key, self.child_hash_to_sql_id[child_hash])

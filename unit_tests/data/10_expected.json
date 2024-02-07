@@ -1,0 +1,82 @@
+{
+    "log": [
+        {
+            "sql_id": 1,
+            "log1": "time1"
+        },
+        {
+            "sql_id": 2,
+            "log2": "time2"
+        }
+    ],
+    "hashes": [
+        {
+            "sql_id": 1,
+            "hashes": "v1"
+        },
+        {
+            "sql_id": 2,
+            "hashes": "v2"
+        }
+    ],
+    "vote": [
+        {
+            "sql_id": 1
+        }
+    ],
+    "message": [
+        {
+            "sql_id": 1
+        }
+    ],
+    "mappings": [
+        {
+            "main_type": "log",
+            "main_sql_id": 1,
+            "link_type": "hashes",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 1,
+            "link_type": "hashes",
+            "link_sql_id": 2
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 1,
+            "link_type": "vote",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 1,
+            "link_type": "message",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 2,
+            "link_type": "hashes",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 2,
+            "link_type": "hashes",
+            "link_sql_id": 2
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 2,
+            "link_type": "vote",
+            "link_sql_id": 1
+        },
+        {
+            "main_type": "log",
+            "main_sql_id": 2,
+            "link_type": "message",
+            "link_sql_id": 1
+        }
+    ]
+}

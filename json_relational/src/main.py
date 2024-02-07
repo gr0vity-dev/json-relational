@@ -8,8 +8,9 @@ class JsonRelational:
         self.root_name = root_name
         self.max_depth = max_depth
         self.sql_id_manager = SQLIDManager()
-        self.child_accumulator = ChildAccumulator(
-            pinned_root=root_name) if pin_root else ChildAccumulator()
+        self.child_accumulator = ChildAccumulator(self.sql_id_manager)
+        if pin_root:
+            self.child_accumulator.set_pinned_root(self.root_name)
         self.key_mapper = KeyMapper()
         self.strategies = {
             dict: DictFlattener(),

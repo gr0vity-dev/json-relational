@@ -94,3 +94,14 @@ def test_flatten_lines_9_2():
 
     actual_result = jr.flatten_json(sample_json_lines)
     assert actual_result == expected_result
+
+
+def test_pinned_root_10():
+    jr = JsonRelational(pin_root=True)
+    sample_json_lines = [{"log1": "time1", "message": {"vote": {"hashes": ["v1", "v2"]}}},
+                         {"log2": "time2", "message": {"vote": {"hashes": ["v1", "v2"]}}}]
+
+    expected_result = jr.read_json('unit_tests/data/10_expected.json')
+
+    actual_result = jr.flatten_json(sample_json_lines)
+    assert actual_result == expected_result
